@@ -36,6 +36,14 @@ RUN yes | sdkmanager --licenses > /dev/null \
       "build-tools;34.0.0" \
       > /dev/null
 
+# Cap Gradle's memory use and disable the background daemon — a daemon left
+# running between builds eats RAM for no benefit in a one-shot container,
+# and uncapped heap sizes are what gets this process OOM-killed on small
+# memory plans.
+RUN mkdir -p /root/.gradle && \
+    printf "org.gradle.daemon=false\norg.gradle.jvmargs=-Xmx768m -XX:MaxMetaspaceSize=256m\norg.gradle.parallel=false\n" \
+      > /root/.gradle/gradle.properties
+
 # --- App ------------------------------------------------------------------
 WORKDIR /app
 COPY package.json ./
