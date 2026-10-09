@@ -1,0 +1,19 @@
+{
+  "name": "html2apk",
+  "version": "1.0.0",
+  "description": "Turn any URL or HTML page into an installable Android APK (Trusted Web Activity wrapper).",
+  "main": "server/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2",
+    "@bubblewrap/core": "^1.19.0",
+    "nanoid": "^3.3.7",
+    "fs-extra": "^11.2.0"
+  }
+}
