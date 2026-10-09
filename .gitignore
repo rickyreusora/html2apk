@@ -1,0 +1,5 @@
+node_modules/
+workdir/
+builds/*.apk
+*.keystore
+.env
