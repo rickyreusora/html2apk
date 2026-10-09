@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HTML2APK — turn a URL into an Android app</title>
+<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main class="card">
+    <h1>HTML2APK</h1>
+    <p class="subtitle">Wrap any website into an installable Android APK.</p>
+
+    <form id="build-form">
+      <label>
+        Website URL
+        <input type="url" name="url" placeholder="https://example.com" required />
+      </label>
+
+      <label>
+        App name
+        <input type="text" name="appName" placeholder="My Web App" required maxlength="30" />
+      </label>
+
+      <label>
+        Short name <span class="hint">(home screen label, optional)</span>
+        <input type="text" name="shortName" placeholder="MyApp" maxlength="12" />
+      </label>
+
+      <label>
+        Package ID <span class="hint">(optional, e.g. com.example.myapp)</span>
+        <input type="text" name="packageId" placeholder="com.example.myapp" />
+      </label>
+
+      <div class="row">
+        <label>
+          Theme color
+          <input type="color" name="themeColor" value="#000000" />
+        </label>
+        <label>
+          Background color
+          <input type="color" name="backgroundColor" value="#ffffff" />
+        </label>
+      </div>
+
+      <label>
+        Icon URL <span class="hint">(optional, defaults to the site's favicon)</span>
+        <input type="url" name="iconUrl" placeholder="https://example.com/icon.png" />
+      </label>
+
+      <button type="submit">Build APK</button>
+    </form>
+
+    <section id="status" class="status" hidden></section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
